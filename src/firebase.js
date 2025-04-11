@@ -1,21 +1,22 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore"; // ✅ this should come *after* initializeApp
+import { getFirestore } from "firebase/firestore";
 
-// Your web app's Firebase configuration
+// Use environment variables from .env
 const firebaseConfig = {
-    apiKey: "AIzaSyBXxoGGvUmmzbism1pFy4tWbodavaLplog",
-    authDomain: "tutorcoachportal.firebaseapp.com",
-    projectId: "tutorcoachportal",
-    storageBucket: "tutorcoachportal.firebasestorage.app",
-    messagingSenderId: "847204632877",
-    appId: "1:847204632877:web:abadbff409681260fceba4"
-  };
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
+};
 
-const app = initializeApp(firebaseConfig); // ✅ make sure this line comes BEFORE getAuth or getFirestore
+const app = initializeApp(firebaseConfig);
 
-export const auth = getAuth(app); // ✅ this is good
-export const db = getFirestore(app); // ✅ this must come AFTER app is initialized
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
 
 
 

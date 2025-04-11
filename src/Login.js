@@ -44,9 +44,10 @@ function Login({ onLogin, switchToSignup }) {
       }
 
     } catch (err) {
-      console.error("Login Error:", err);
+      console.error("Login error:", err.message); // 👈 This helps you see the real error
       setError("Login failed. Please check your credentials.");
     }
+    
   };
 
   return (
@@ -95,6 +96,7 @@ function Login({ onLogin, switchToSignup }) {
     </>
   );
 }
+
 
 export default Login;
 
